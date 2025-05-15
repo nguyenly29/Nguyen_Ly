@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DES Encrypt/Decrypt</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+<div class="container mt-5">
+    <h2 class="mb-4 text-center">DES File Encrypt / Decrypt</h2>
+        <div class="alert alert-{{ alert }}"></div>
+    <form method="post" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label class="form-label">Enter 8-character Key</label>
+            <input type="text" name="key" class="form-control" maxlength="8" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Select File</label>
+            <input type="file" name="file" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Operation</label><br>
+            <select name="operation" class="form-select" required>
+                <option value="encrypt">Encrypt</option>
+                <option value="decrypt">Decrypt</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Process</button>
+    </form>
+        <div class="mt-4">
+            <a href="{{ url_for('download', filename=download_file) }}" class="btn btn-success">Download Result</a>
+        </div>
+</div>
+</body>
+</html>
